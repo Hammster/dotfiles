@@ -1,0 +1,12 @@
+# ignore all the things
+*
+
+# except these
+!.gitignore
+!init
+!config.cson
+!init.coffee
+!keymap.cson
+!snippets.cson
+!styles.less
+!toolbar.cson

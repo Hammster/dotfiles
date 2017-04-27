@@ -1,0 +1,67 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "35ab0ee5-3dcb-4660-bcf6-50c2e6ab9bc6"
+      analytics: false
+    html:
+      indent_size: 2
+    rust: {}
+    scss:
+      indent_size: 2
+  build:
+    panelVisibility: "Keep Visible"
+  core:
+    autoHideMenuBar: true
+    disabledPackages: []
+    ignoredNames: [
+      "._*"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "gloom"
+    ]
+    useCustomTitleBar: true
+  editor:
+    fontSize: 12
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    tabType: "soft"
+  "exception-reporting":
+    userId: "f1e0477d-2841-2599-08d1-fa26e2c03351"
+  "file-icons":
+    coloured: false
+    forceShow: true
+    onChanges: true
+  "flex-tool-bar": {}
+  linter: {}
+  "linter-jscs": {}
+  "linter-scss-lint": {}
+  "linter-ui-default":
+    showPanel: true
+  minimap:
+    absoluteMode: true
+    plugins:
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      pigments: true
+      pigmentsDecorationsZIndex: 0
+  "one-dark-ui":
+    layoutMode: "Compact"
+  "one-light-ui":
+    layoutMode: "Compact"
+    tabSizing: "Even"
+  "project-viewer":
+    customWidth: 295
+    disclaimer:
+      v1013: false
+    hideHeader: true
+    statusBar: true
+  "tool-bar":
+    iconSize: "16px"
+    position: "Right"
+  "tree-view":
+    hideIgnoredNames: true
+  welcome:
+    showOnStartup: false

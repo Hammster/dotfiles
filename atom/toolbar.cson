@@ -1,0 +1,29 @@
+# This file is used by Flex Tool Bar to create buttons on your Tool Bar.
+# For more information how to use this package and create your own buttons,
+#   read the documentation on https://atom.io/packages/flex-tool-bar
+
+[
+  # General and stuff
+  {
+    type: "button"
+    icon: "gear"
+    callback: "flex-tool-bar:edit-config-file"
+    tooltip: "Edit Tool Bar"
+  }
+  {
+    type: "button"
+    icon: "bookmark"
+    callback: "project-viewer:togglePanel"
+    tooltip: "project-viewer:togglePanel"
+  }
+  # Git and stuff
+  {
+    type: "spacer"
+  }
+  {
+    type: "button"
+    icon: "circuit-board"
+    callback: "git-log:show"
+    tooltip: "git-log:show"
+  }
+]

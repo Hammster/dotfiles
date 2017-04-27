@@ -1,0 +1,64 @@
+#!/bin/bash
+# ------------------------------------------------------------------------------
+# Script to install atom plugins via apm
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+# Install atom and apm
+# ------------------------------------------------------------------------------
+
+if [ ! "$DOTFILE_CURRENT_OS" ]; then
+  echo 'Please do not call this script directly ... '
+  exit 2
+fi
+
+if [ "$DOTFILE_CURRENT_OS" = "Mac" ]; then
+  if [ ! atom ]; then
+    echo 'Installing Atom'
+    brew cask install atom
+  fi
+fi
+
+if [ "$DOTFILE_CURRENT_OS" = "Linux" ]; then
+  if [ ! -f /etc/apt/sources.list.d/webupd8team-ubuntu-atom-*.list ]; then
+    echo 'Adding PPA'
+    sudo add-apt-repository ppa:webupd8team/atom
+    sudo apt-get update
+    echo 'Installing Atom'
+    sudo apt-get install atom
+  else
+    if [ ! atom ]; then
+      echo 'Installing Atom'
+      sudo apt-get install atom
+    fi
+  fi
+fi
+
+if [ "$DOTFILE_CURRENT_OS" = "Window" ]; then
+  if [ ! atom ]; then
+    echo 'Installing Atom'
+    choco install atom
+  fi
+fi
+
+# ------------------------------------------------------------------------------
+# Install packages
+# ------------------------------------------------------------------------------
+
+apm install\
+  gloom\
+  project-viewer\
+  tool-bar\
+  flex-tool-bar\
+  language-rust\
+  git-log\
+  linter\
+  linter-ui-default\
+  intentions\
+  busy-signal\
+  linter-sass-lint\
+  linter-jshint\
+  linter-jsonlint\
+  linter-htmlhint\
+  linter-csslint\
+  linter-markdown
