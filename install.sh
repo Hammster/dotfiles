@@ -43,4 +43,4 @@ esac
 # modules
 
 . ~/dotfiles/zsh/init
-# . ~/dotfiles/atom/init
+. ~/dotfiles/atom/init
