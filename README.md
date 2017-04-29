@@ -9,9 +9,6 @@ My dotfiles support:
 -   Ubuntu (Tested with Xenial)
 -   OSX
 
-
---------------------------------------------------------------------------------
-
 ## Install
 
 ### Windows:
@@ -26,7 +23,6 @@ Before you clone the repo you should have two dependencies installed:
     -   This will set up aliases and backup previous files in `~/dotfiles-old`
     -   Note: Your dotfiles from `%USERPROFILE\*` will be added to `~/dotfiles-old`
 
-
 ### Ubuntu/OSX
 
 Before you clone the repo you should have two dependencies installed:
@@ -38,9 +34,6 @@ Before you clone the repo you should have two dependencies installed:
 3.  Clone the repo into your home folder.
 4.  Run `sh ~/dotfiles/install.sh`
     -   This will set up aliases and backup previous files in `~/dotfiles-old`
-
-
---------------------------------------------------------------------------------
 
 ## Note
 
