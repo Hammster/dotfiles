@@ -6,7 +6,7 @@
 # linkin is relative from ~/
 __linking() {
   if [ -L ~/$1 ]; then
-    if [ "$(readlink -f ~/$1)" != "$HOME/$1" ]; then
+    if [ "$(readlink -f ~/$1)" = "$HOME/$1" ]; then
       mv ~/$1 ~/dotfiles-old/$1
       __msg "Old files moved to ~/dotfiles-lod/$1"
     fi
