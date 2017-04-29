@@ -8,7 +8,8 @@
 # ------------------------------------------------------------------------------
 # Variables
 # ------------------------------------------------------------------------------
-
+DOTFILES_WINDOWS_HOME="/c/Users/$USERNAME"
+DOTFILES_WINDOWS_HOME_CYGWIN="$DOTFILES_WINDOWS_HOME/.babun/cygwin/home/$USERNAME"
 DOTFILE_CURRENT_OS="n/a";
 case "$(uname -s)" in
   Darwin)
@@ -26,6 +27,8 @@ case "$(uname -s)" in
 
   CYGWIN*|MINGW32*|MSYS*)
     DOTFILE_CURRENT_OS="Windows"
+    DOTFILES_WINDOWS_HOME="%USERPROFILE%"
+    DOTFILES_WINDOWS_HOME_CYGWIN="%USERPROFILE%/.babun/cygwin/home/%username%/"
   ;;
 esac
 
@@ -33,4 +36,11 @@ esac
 # Includes
 # ------------------------------------------------------------------------------
 
-. ~/dotfiles/atom/init
+# core
+
+. ~/dotfiles/util
+
+# modules
+
+. ~/dotfiles/zsh/init
+# . ~/dotfiles/atom/init
