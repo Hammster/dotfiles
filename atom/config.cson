@@ -31,7 +31,7 @@
   "exception-reporting":
     userId: "f1e0477d-2841-2599-08d1-fa26e2c03351"
   "file-icons":
-    coloured: false
+    coloured: true
     forceShow: true
     onChanges: true
   "flex-tool-bar": {}
@@ -62,6 +62,6 @@
     iconSize: "16px"
     position: "Right"
   "tree-view":
-    hideIgnoredNames: true
+    hideIgnoredNames: false
   welcome:
     showOnStartup: false
