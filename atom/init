@@ -3,47 +3,59 @@
 # Script to install atom plugins via apm
 # ------------------------------------------------------------------------------
 
+if [ ! "$DOTFILE_CURRENT_OS" ]; then
+  echo "Please do not call this script directly ... "
+  exit 2
+fi
+
 # ------------------------------------------------------------------------------
 # Install atom and apm
 # ------------------------------------------------------------------------------
 
-if [ ! "$DOTFILE_CURRENT_OS" ]; then
-  echo 'Please do not call this script directly ... '
-  exit 2
-fi
+__header "Component Atom"
+__title "Installing"
 
-if [ "$DOTFILE_CURRENT_OS" = "Mac" ]; then
-  if [ ! atom ]; then
-    echo 'Installing Atom'
+if [ ! atom ]; then
+
+  if [ "$DOTFILE_CURRENT_OS" = "Mac" ]; then
     brew cask install atom
   fi
-fi
 
-if [ "$DOTFILE_CURRENT_OS" = "Linux" ]; then
-  if [ ! -f /etc/apt/sources.list.d/webupd8team-ubuntu-atom-*.list ]; then
-    echo 'Adding PPA'
-    sudo add-apt-repository ppa:webupd8team/atom
-    sudo apt-get update
-    echo 'Installing Atom'
-    sudo apt-get install atom
-  else
-    if [ ! atom ]; then
-      echo 'Installing Atom'
-      sudo apt-get install atom
+  if [ "$DOTFILE_CURRENT_OS" = "Linux" ]; then
+    if [ ! -f /etc/apt/sources.list.d/webupd8team-ubuntu-atom-*.list ]; then
+      sudo add-apt-repository ppa:webupd8team/atom
+      sudo apt update
+      sudo apt install atom
+    else
+    sudo apt install atom
     fi
   fi
-fi
 
-if [ "$DOTFILE_CURRENT_OS" = "Window" ]; then
-  if [ ! atom ]; then
-    echo 'Installing Atom'
+  if [ "$DOTFILE_CURRENT_OS" = "Window" ]; then
     choco install atom
   fi
+  __msg "Done"
+else
+  __msg "Already installed"
 fi
+
+
+# ------------------------------------------------------------------------------
+# Link files
+# ------------------------------------------------------------------------------
+
+__title "Linking"
+# linkin is relative from ~/
+__linking ".atom" "dotfiles/atom"
 
 # ------------------------------------------------------------------------------
 # Install packages
+#
+# Add all default plugins here, some may require you to add additional files
+# so you can add them the the gitignore and this folder.
 # ------------------------------------------------------------------------------
+
+__title "Installing Plugins"
 
 apm install\
   gloom\
@@ -52,6 +64,7 @@ apm install\
   flex-tool-bar\
   language-rust\
   git-log\
+  atom-css-comb\
   linter\
   linter-ui-default\
   intentions\
@@ -62,3 +75,5 @@ apm install\
   linter-htmlhint\
   linter-csslint\
   linter-markdown
+
+__msg "Done"
