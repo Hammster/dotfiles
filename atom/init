@@ -59,11 +59,15 @@ __title "Installing Plugins"
 
 apm install\
   gloom\
+  atom-beautify\
   project-viewer\
   tool-bar\
   flex-tool-bar\
   language-rust\
   git-log\
+  pigments\
+  minimap\
+  minimap-pigments\
   atom-css-comb\
   linter\
   linter-ui-default\
