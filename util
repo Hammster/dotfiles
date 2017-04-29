@@ -5,20 +5,26 @@
 
 # linkin is relative from ~/
 __linking() {
-  if [ -L ~/$1 ]; then
-    if [ "$(readlink -f ~/$1)" = "$HOME/$1" ]; then
-      mv ~/$1 ~/dotfiles-old/$1
-      __msg "Old files moved to ~/dotfiles-lod/$1"
+  if [ -d ~/$1 ] || [ -L ~/$1 ]; then
+    if [ ! -L "$HOME/$1" ]; then
+      DATE="$(date +%s)"
+      mv ~/$1 ~/dotfiles-old/$DATE$1
+      __msg "Backup to ~/dotfiles-lod/$DATE$1"
     fi
-    if [ "$(readlink -f ~/$1)" != "$HOME/$2" ]; then
-      #rm ~/$1
-      __msg "Updated link"
+
+    if [ -L "$HOME/$1" ] && [ "$(readlink -f ~/$1)" != "$HOME/$2" ]; then
+      rm ~/$1
+      __msg "Remove outdated link"
     fi
-    __msg "Already linked"
+
+    if [ ! -L "$HOME/$1" ]; then
+      ln -s ~/$2 ~/$1
+      __msg "Link dotfile"
+    fi
   else
     ln -s ~/$2 ~/$1
-    __msg "Done"
   fi
+  __msg "Done"
 }
 
 __header() {
