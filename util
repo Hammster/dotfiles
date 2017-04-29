@@ -1,0 +1,40 @@
+#!/bin/bash
+# ------------------------------------------------------------------------------
+# Handydandy functions to keep some things DRY
+# ------------------------------------------------------------------------------
+
+# linkin is relative from ~/
+__linking() {
+  if [ -L ~/$1 ]; then
+    if [ "$(readlink -f ~/$1)" != "$HOME/$1" ]; then
+      mv ~/$1 ~/dotfiles-old/$1
+      __msg "Old files moved to ~/dotfiles-lod/$1"
+    fi
+    if [ "$(readlink -f ~/$1)" != "$HOME/$2" ]; then
+      #rm ~/$1
+      __msg "Updated link"
+    fi
+    __msg "Already linked"
+  else
+    ln -s ~/$2 ~/$1
+    __msg "Done"
+  fi
+}
+
+__header() {
+  echo "--------------------------------------------"
+  echo "$1"
+  echo "--------------------------------------------"
+}
+
+__title() {
+  echo "\n==== [ $1"
+}
+
+__msg() {
+  echo "- $1 ✓"
+}
+
+__err() {
+  echo "- $1 ✖"
+}
