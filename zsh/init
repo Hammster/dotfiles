@@ -1,0 +1,47 @@
+#!/bin/bash
+# ------------------------------------------------------------------------------
+# Script to install zsh and oh my zsh bundle
+# ------------------------------------------------------------------------------
+
+if [ ! "$DOTFILE_CURRENT_OS" ]; then
+  echo "Please do not call this script directly ..."
+  exit 2
+fi
+
+# ------------------------------------------------------------------------------
+# Install zsh and oh my zshs
+# ------------------------------------------------------------------------------
+
+__header "Component ZSH/Oh My Zsh"
+__title "Installing"
+
+if [ ! zsh ]; then
+
+  if [ "$DOTFILE_CURRENT_OS" = "Mac" ]; then
+    brew install zsh zsh-completions
+    # install oh-my-zsh
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    chsh -s /bin/zsh
+  fi
+
+  if [ "$DOTFILE_CURRENT_OS" = "Linux" ]; then
+    sudo apt install zsh
+    # install oh-my-zsh
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    chsh -s /bin/zsh
+  fi
+
+  # Bubun brings zsh an oh-my-zsh to windows already
+
+  __msg "Done"
+else
+  __msg "Already installed"
+fi
+
+# ------------------------------------------------------------------------------
+# Link files
+# ------------------------------------------------------------------------------
+
+__title "Linking"
+# linkin is relative from ~/
+__linking ".zshrc" "dotfiles/zsh/zshrc"
