@@ -30,9 +30,8 @@ Before you clone the repo you should have two dependencies installed:
 1.  Install zsh
     -   Ubuntu: `apt install zsh`
     -   OSX: `brew install zsh`
-2.  Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-3.  Clone the repo into your home folder.
-4.  Run `sh ~/dotfiles/install.sh`
+2.  Clone the repo into your home folder.
+3.  Run `sh ~/dotfiles/install.sh`
     -   This will set up aliases and backup previous files in `~/dotfiles-old`
 
 ## Note
