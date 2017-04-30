@@ -44,4 +44,4 @@ fi
 
 __title "Linking"
 # linkin is relative from ~/
-__linking ".zshrc" "dotfiles/zsh/zshrc"
+__linking ~/.zshrc ~/dotfiles/zsh/zshrc

@@ -5,24 +5,32 @@
 
 # linkin is relative from ~/
 __linking() {
-  if [ -d ~/$1 ] || [ -L ~/$1 ]; then
-    if [ ! -L "$HOME/$1" ]; then
+  if [ -d $1 ] || [ -L $1 ]; then
+    if [ ! -L "$1" ]; then
       DATE="$(date +%s)"
-      mv ~/$1 ~/dotfiles-old/$DATE$1
+      mv $1 ~/dotfiles-old/$DATE$1
       __msg "Backup to ~/dotfiles-lod/$DATE$1"
     fi
 
-    if [ -L "$HOME/$1" ] && [ "$(readlink -f ~/$1)" != "$HOME/$2" ]; then
-      rm ~/$1
+    if [ -L "$1" ] && [ "$(readlink -f $1)" != "$(realpath $2)" ]; then
+      rm $1
       __msg "Remove outdated link"
     fi
 
-    if [ ! -L "$HOME/$1" ]; then
-      ln -s ~/$2 ~/$1
+    if [ ! -L "$1" ]; then
+      if [ $3 ] && [ $DOTFILE_CURRENT_OS = "Windows" ]; then
+        ln -s $3 $1
+      else
+        ln -s $2 $1
+      fi
       __msg "Link dotfile"
     fi
   else
-    ln -s ~/$2 ~/$1
+    if [ $3 ] && [ $DOTFILE_CURRENT_OS = "Windows" ]; then
+      ln -s $3 $1
+    else
+      ln -s $2 $1
+    fi
   fi
   __msg "Done"
 }

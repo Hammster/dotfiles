@@ -46,7 +46,7 @@ fi
 
 __title "Linking"
 # linkin is relative from ~/
-__linking ".atom" "dotfiles/atom"
+__linking ~/.atom ~/dotfiles/atom $DOTFILES_WINDOWS_HOME/.atom
 
 # ------------------------------------------------------------------------------
 # Install packages
