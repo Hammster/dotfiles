@@ -17,8 +17,7 @@ echo "
 # ------------------------------------------------------------------------------
 # Variables
 # ------------------------------------------------------------------------------
-DOTFILES_WINDOWS_HOME="/c/Users/$USERNAME"
-DOTFILES_WINDOWS_HOME_CYGWIN="$DOTFILES_WINDOWS_HOME/.babun/cygwin/home/$USERNAME"
+
 DOTFILE_CURRENT_OS="n/a";
 case "$(uname -s)" in
   Darwin)
@@ -36,8 +35,8 @@ case "$(uname -s)" in
 
   CYGWIN*|MINGW32*|MSYS*)
     DOTFILE_CURRENT_OS="Windows"
-    DOTFILES_WINDOWS_HOME="%USERPROFILE%"
-    DOTFILES_WINDOWS_HOME_CYGWIN="%USERPROFILE%/.babun/cygwin/home/%username%/"
+    DOTFILES_WINDOWS_HOME="/c/Users/$USERNAME"
+    DOTFILES_WINDOWS_HOME_CYGWIN="$DOTFILES_WINDOWS_HOME/.babun/cygwin/home/$USERNAME"
   ;;
 esac
 
@@ -47,6 +46,9 @@ esac
 
 # core
 
+if [ $DOTFILE_CURRENT_OS = "Windows" ]; then
+  . ~/dotfiles/win-dependencies
+fi
 . ~/dotfiles/util
 
 # modules

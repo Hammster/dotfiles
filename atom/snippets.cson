@@ -9,9 +9,9 @@
 # An example CoffeeScript snippet to expand log to console.log:
 #
 # '.source.coffee':
-#   'Console log':
-#     'prefix': 'log'
-#     'body': 'console.log $1'
+#	 'Console log':
+#		 'prefix': 'log'
+#		 'body': 'console.log $1'
 #
 # Each scope (e.g. '.source.coffee' above) can only be declared once.
 #
@@ -19,3 +19,12 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+
+'*':
+  '# Comment Section':
+    'prefix': 'ham-comment-section-hash'
+    'body': '# ------------------------------------------------------------------------------\n# SectionName\n# ------------------------------------------------------------------------------'
+  '// Comment Section':
+    'prefix': 'ham-comment-section-slash-slash'
+    'body': '// -----------------------------------------------------------------------------\n// SectionName\n// -----------------------------------------------------------------------------'

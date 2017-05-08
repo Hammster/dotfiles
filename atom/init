@@ -31,14 +31,13 @@ if [ ! atom ]; then
     fi
   fi
 
-  if [ "$DOTFILE_CURRENT_OS" = "Window" ]; then
+  if [ "$DOTFILE_CURRENT_OS" = "Windows" ]; then
     choco install atom
   fi
   __msg "Done"
 else
   __msg "Already installed"
 fi
-
 
 # ------------------------------------------------------------------------------
 # Link files
@@ -55,7 +54,13 @@ __linking ~/.atom ~/dotfiles/atom $DOTFILES_WINDOWS_HOME/.atom
 # so you can add them the the gitignore and this folder.
 # ------------------------------------------------------------------------------
 
+if [ "$DOTFILE_CURRENT_OS" = "Windows" ]; then
+  alias apm='apm.cmd'
+fi
+
 __title "Installing Plugins"
+
+exit
 
 apm install\
   gloom\
@@ -74,10 +79,11 @@ apm install\
   intentions\
   busy-signal\
   linter-sass-lint\
-  linter-jshint\
+  linter-eslint\
   linter-jsonlint\
   linter-htmlhint\
   linter-csslint\
+  linter-js-yaml\
   linter-markdown
 
 __msg "Done"

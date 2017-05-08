@@ -1,0 +1,175 @@
+# ------------------------------------------------------------------------------
+# Hammster sass-lint config
+# BEM, SMACSS and stuff
+# ------------------------------------------------------------------------------
+
+options:
+  # Raise an error if more than 1 warnings are generated
+  # nobody got times for errors
+  max-warnings: 1
+# Rule Configuration
+rules:
+  no-warn: 2
+  no-debug: 2
+  no-ids: 2
+  no-important: 2
+  indentation:
+    - 2
+    -
+      size: 2
+  class-name-format: 'hyphenatedbem'
+  property-sort-order:
+    - 2
+    -
+      order:
+        - 'z-index'
+
+        - 'display'
+        - 'position'
+        - 'top'
+        - 'right'
+        - 'bottom'
+        - 'left'
+
+        - 'flex'
+        - 'flex-basis'
+        - 'flex-direction'
+        - 'flex-flow'
+        - 'flex-grow'
+        - 'flex-shrink'
+        - 'flex-wrap'
+        - 'align-content'
+        - 'align-items'
+        - 'align-self'
+        - 'justify-content'
+        - 'order'
+
+        - 'width'
+        - 'min-width'
+        - 'max-width'
+
+        - 'height'
+        - 'min-height'
+        - 'max-height'
+
+        - 'margin'
+        - 'margin-top'
+        - 'margin-right'
+        - 'margin-bottom'
+        - 'margin-left'
+
+        - 'padding'
+        - 'padding-top'
+        - 'padding-right'
+        - 'padding-bottom'
+        - 'padding-left'
+
+        - 'float'
+        - 'clear'
+
+        - 'columns'
+        - 'column-gap'
+        - 'column-fill'
+        - 'column-rule'
+        - 'column-span'
+        - 'column-count'
+        - 'column-width'
+
+        - 'transform'
+        - 'transform-box'
+        - 'transform-origin'
+        - 'transform-style'
+
+        - 'transition'
+        - 'transition-delay'
+        - 'transition-duration'
+        - 'transition-property'
+        - 'transition-timing-function'
+
+        - 'border'
+        - 'border-top'
+        - 'border-right'
+        - 'border-bottom'
+        - 'border-left'
+        - 'border-width'
+        - 'border-top-width'
+        - 'border-right-width'
+        - 'border-bottom-width'
+        - 'border-left-width'
+
+        - 'border-style'
+        - 'border-top-style'
+        - 'border-right-style'
+        - 'border-bottom-style'
+        - 'border-left-style'
+
+        - 'border-radius'
+        - 'border-top-left-radius'
+        - 'border-top-right-radius'
+        - 'border-bottom-left-radius'
+        - 'border-bottom-right-radius'
+
+        - 'border-color'
+        - 'border-top-color'
+        - 'border-right-color'
+        - 'border-bottom-color'
+        - 'border-left-color'
+
+        - 'box-shadow'
+
+        - 'outline'
+        - 'outline-color'
+        - 'outline-offset'
+        - 'outline-style'
+        - 'outline-width'
+
+        - 'background'
+        - 'background-attachment'
+        - 'background-clip'
+        - 'background-color'
+        - 'background-image'
+        - 'background-repeat'
+        - 'background-position'
+        - 'background-size'
+
+        - 'color'
+
+        - 'font'
+        - 'font-family'
+        - 'font-size'
+        - 'font-smoothing'
+        - 'font-style'
+        - 'font-variant'
+        - 'font-weight'
+
+        - 'letter-spacing'
+        - 'line-height'
+        - 'list-style'
+
+        - 'text-align'
+        - 'text-decoration'
+        - 'text-indent'
+        - 'text-overflow'
+        - 'text-rendering'
+        - 'text-shadow'
+        - 'text-transform'
+        - 'text-wrap'
+
+        - 'white-space'
+        - 'word-spacing'
+
+        - 'border-collapse'
+        - 'border-spacing'
+
+        - 'caption-side'
+        - 'content'
+        - 'cursor'
+        - 'empty-cells'
+        - 'opacity'
+        - 'overflow'
+        - 'quotes'
+        - 'speak'
+        - 'table-layout'
+        - 'vertical-align'
+        - 'visibility'
+      ignore-custom-properties: true

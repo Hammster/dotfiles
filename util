@@ -1,15 +1,32 @@
 #!/bin/bash
+
 # ------------------------------------------------------------------------------
 # Handydandy functions to keep some things DRY
 # ------------------------------------------------------------------------------
 
 # linkin is relative from ~/
 __linking() {
-  if [ -d $1 ] || [ -L $1 ]; then
+  echo "path: $1"
+  echo "dest: $2"
+  echo "path_win: $3"
+
+  if [ -e $1 ] || [ -L $1 ]; then
+
     if [ ! -L "$1" ]; then
+      if [ ! -e ~/dotfiles-old ]; then
+        __msg "Created ~/dotfiles-old"
+        mkdir ~/dotfiles-old
+      fi
+
       DATE="$(date +%s)"
-      mv $1 ~/dotfiles-old/$DATE$1
-      __msg "Backup to ~/dotfiles-lod/$DATE$1"
+
+      if [ ! -e ~/dotfiles-old/$DATE ]; then
+        __msg "Created ~/dotfiles-old/$DATE"
+        mkdir ~/dotfiles-old/$DATE
+      fi
+
+      mv $1 ~/dotfiles-old/$DATE$(basename $1)
+      __msg "Backup to ~/dotfiles-lod/$DATE$(basename $1)"
     fi
 
     if [ -L "$1" ] && [ "$(readlink -f $1)" != "$(realpath $2)" ]; then
@@ -19,7 +36,8 @@ __linking() {
 
     if [ ! -L "$1" ]; then
       if [ $3 ] && [ $DOTFILE_CURRENT_OS = "Windows" ]; then
-        ln -s $3 $1
+        winln -s $2 $3
+        echo 'A'
       else
         ln -s $2 $1
       fi
@@ -27,7 +45,7 @@ __linking() {
     fi
   else
     if [ $3 ] && [ $DOTFILE_CURRENT_OS = "Windows" ]; then
-      ln -s $3 $1
+      winln -s $2 $3
     else
       ln -s $2 $1
     fi
@@ -42,7 +60,8 @@ __header() {
 }
 
 __title() {
-  echo "\n==== [ $1"
+  echo ""
+  echo "==== [ $1"
 }
 
 __msg() {

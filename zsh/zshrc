@@ -59,6 +59,8 @@ source $ZSH/oh-my-zsh.sh
 if [ "$DOTFILES_CURRENT_OS" = "Windows" ]; then
   alias win-Workspace="cd /c/Users/%username%/Workspace/"
   alias win-Home="cd /c/Users/%username%/"
+  # yep atom knows about cygwin, but apm not
+  alias apm="apm.cmd"
 fi
 
 # ------------------------------------------------------------------------------

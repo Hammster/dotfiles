@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# ------------------------------------------------------------------------------
+# Win Dependencies
+# ------------------------------------------------------------------------------
+
+echo "Install additional"
+
+if [ ! $(command -v winln) ]; then
+  echo "Install cygutils-extra (Contains winln and more)"
+  pact isntall cygutils-extra
+fi
