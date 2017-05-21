@@ -1,4 +1,7 @@
 "*":
+  "atom-beautify":
+    js:
+      default_beautifier: "ESLint Fixer"
   core:
     autoHideMenuBar: true
     destroyEmptyPanes: false
@@ -16,13 +19,15 @@
     userId: "08af8d6a-7537-40e4-b365-15d7ece4d098"
   "line-ending-selector":
     defaultLineEnding: "LF"
+  "linter-ui-default":
+    showPanel: true
   minimap:
     plugins:
       pigments: true
       pigmentsDecorationsZIndex: 0
-  "one-dark-ui":
-    layoutMode: "Compact"
+  "one-dark-ui": {}
   "project-viewer":
+    customWidth: 188
     disclaimer:
       v1014: false
   "tool-bar":
